@@ -1,4 +1,5 @@
 package Views;
+import DAO.ClienteDAO;
 import Models.Cliente;
 import Controllers.ClienteController;
 
@@ -31,7 +32,7 @@ public class ClienteView {
                    menuCadastrar();
                     break;
                 case 2:
-                    //menuSelecionar();
+                    menuCarregar();
                     break;
                 case 3:
                     listaCliente();
@@ -60,9 +61,13 @@ public class ClienteView {
              for (Cliente cliente: controller.getModels()){
                  System.out.printf("ID: %d | Username: %s | Nome: %s | Sobrenome: %s\n",
                     cliente.getId(), cliente.getUsername(), cliente.getNome(), cliente.getSobrenome());
+                 }
+
+         }
+
+        public void menuCarregar(){
+            ClienteDAO clienteDAO = new ClienteDAO();
+            clienteDAO.carregar();
         }
 
-
-
-    }
 }
