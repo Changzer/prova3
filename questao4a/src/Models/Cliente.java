@@ -56,11 +56,11 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
-                '}';
+        return
+
+                this.username+";"+
+                this.nome+";"+
+                this.sobrenome+";"
+                ;
     }
 }

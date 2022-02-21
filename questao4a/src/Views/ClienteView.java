@@ -4,6 +4,7 @@ import Models.Cliente;
 import Controllers.ClienteController;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ClienteView {
@@ -19,8 +20,8 @@ public class ClienteView {
         while(true){
             System.out.println("Menu");
             System.out.println("1 - Cadastrar");
-            System.out.println("2 - Selecionar");
-            System.out.println("3 - Listar");
+            System.out.println("2 - Selecionar Cliente");
+            System.out.println("3 - Listar Clientes");
 
             int escolha = ler.nextInt();
             ler.nextLine();
@@ -32,10 +33,10 @@ public class ClienteView {
                    menuCadastrar();
                     break;
                 case 2:
-                    menuCarregar();
+
                     break;
                 case 3:
-                    listaCliente();
+                    menuListar();
                     break;
 
             }
@@ -57,17 +58,22 @@ public class ClienteView {
         System.out.println("Cliente <" + newCliente.getUsername() + "> foi cadastrado\n");
         }
 
-        private void listaCliente(){
-             for (Cliente cliente: controller.getModels()){
-                 System.out.printf("ID: %d | Username: %s | Nome: %s | Sobrenome: %s\n",
-                    cliente.getId(), cliente.getUsername(), cliente.getNome(), cliente.getSobrenome());
-                 }
 
-         }
-
-        public void menuCarregar(){
+        public void menuListar(){
             ClienteDAO clienteDAO = new ClienteDAO();
             clienteDAO.carregar();
+            clienteDAO.listar();
+
+            List<Cliente> clientesCadastrados = controller.listar();
+            for (int i =0; i < clientesCadastrados.size(); i++) {
+                System.out.println( "ID: " + i +
+                        " | " + clientesCadastrados.get(i).getUsername() +
+                        " | " + clientesCadastrados.get(i).getNome() +
+                        " | " + clientesCadastrados.get(i).getSobrenome() );
+            }
+
+
         }
+
 
 }

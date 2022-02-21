@@ -1,1 +1,4 @@
-Cliente{id=1, username='changzer222', nome='abel', sobrenome='chang'}
+changzer;abel;chang;
+lucyanaaa;lucyana;amaral;
+zoken;kenzo;chang;
+tiburcio;jose;bonifacio;

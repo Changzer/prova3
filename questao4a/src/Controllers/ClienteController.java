@@ -40,8 +40,8 @@ public class ClienteController {
         return idMax +1;
     }
 
-    public List<Cliente> getModels(){
-        return this.models;
-    }
 
+    public List<Cliente> listar(){
+        return clienteDAO.listar();
+    }
 }
